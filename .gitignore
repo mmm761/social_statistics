@@ -4,3 +4,6 @@ _book/
 .RData
 .Renviron
 renv/library/
+
+/.quarto/
+**/*.quarto_ipynb
