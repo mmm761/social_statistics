@@ -1998,7 +1998,7 @@ dat_turnout <- tibble(
 
 
 ggplot(dat_turnout, aes(grad_share * 100, turnout)) +
-  geom_point(alpha = 0.4, size = 1.5, colour = "red") +
+  geom_point(alpha = 0.4, size = 3, colour = "red") +
   geom_smooth(method = "lm", se = TRUE) +
   labs(
     x = "Graduate-degree share (%)",
