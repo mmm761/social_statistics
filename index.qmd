@@ -248,7 +248,7 @@ In essence, this figure captures how statistical reasoning flows from data colle
 ```{r}
 #| echo: false
 dir.create("images", showWarnings = FALSE)
-ok <- file.copy("/Users/masoudmovahed/Downloads/rr.png",
+ok <- file.copy("/Users/masoudmovahed/Documents/UCSB/book/r-book-starter/rrrr.png",
                 "images/yek.png",
                 overwrite = TRUE)
 stopifnot(ok)  # stop if copy failed
