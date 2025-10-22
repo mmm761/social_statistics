@@ -1,0 +1,21 @@
+{
+  "hash": "29ca176521b4813d9f97a582583048a5",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"R Basics\"\n---\n\nQuarto understands R Markdown style chunks. You can mix text and code to make a \"sexy looking\" book.\n\n### Objects and vectors\n\n\n::: {.cell}\n\n```{.r .cell-code}\nx <- 1:5\nmean(x)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 3\n```\n\n\n:::\n\n```{.r .cell-code}\nsd(x)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 1.581139\n```\n\n\n:::\n:::\n\n\n### Data wrangling example (dplyr)\n\n\n::: {.cell}\n\n```{.r .cell-code}\nif (!requireNamespace(\"dplyr\", quietly = TRUE)) {\n  install.packages(\"dplyr\")\n}\nlibrary(dplyr)\n\nmtcars %>% \n  group_by(cyl) %>% \n  summarise(avg_mpg = mean(mpg), .groups = \"drop\")\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n# A tibble: 3 x 2\n    cyl avg_mpg\n  <dbl>   <dbl>\n1     4    26.7\n2     6    19.7\n3     8    15.1\n```\n\n\n:::\n:::\n\n\n### A ggplot example\n\n\n::: {.cell}\n\n```{.r .cell-code}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nlibrary(ggplot2)\n\nggplot(mtcars, aes(wt, mpg, color = factor(cyl))) +\n  geom_point() +\n  theme_minimal()\n```\n\n::: {.cell-output-display}\n![](02-r-basics_files/figure-pdf/unnamed-chunk-3-1.pdf){fig-pos='H'}\n:::\n:::\n\n",
+    "supporting": [
+      "02-r-basics_files/figure-pdf"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}
