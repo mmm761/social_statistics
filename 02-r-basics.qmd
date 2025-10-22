@@ -1,0 +1,41 @@
+---
+title: "R Basics"
+---
+
+Quarto understands R Markdown style chunks. You can mix text and code to make a "sexy looking" book.
+
+### Objects and vectors
+
+```{r}
+x <- 1:5
+mean(x)
+sd(x)
+```
+
+### Data wrangling example (dplyr)
+
+```{r}
+#| message: false
+#| warning: false
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+library(dplyr)
+
+mtcars %>% 
+  group_by(cyl) %>% 
+  summarise(avg_mpg = mean(mpg), .groups = "drop")
+```
+
+### A ggplot example
+
+```{r}
+if (!requireNamespace("ggplot2", quietly = TRUE)) {
+  install.packages("ggplot2")
+}
+library(ggplot2)
+
+ggplot(mtcars, aes(wt, mpg, color = factor(cyl))) +
+  geom_point() +
+  theme_minimal()
+```

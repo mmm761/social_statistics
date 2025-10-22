@@ -1,0 +1,8 @@
+bookdown::gitbook:
+  css: styles.css
+  config:
+    toc:
+      collapse: subsection
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  latex_engine: xelatex

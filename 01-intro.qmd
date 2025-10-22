@@ -1,0 +1,19 @@
+---
+title: "Introduction"
+---
+
+This chapter shows how prose and code live together.
+
+## A simple R chunk
+
+Here is a code *chunk* (not "chuck" 😉). It runs R and shows the output inline.
+
+```{r}
+#| label: cars-plot
+#| fig-cap: "Base R scatterplot of 'cars'."
+plot(cars, main = "Cars dataset")
+```
+
+## Inline code
+
+We can also inline R results like 2 + 2 = `r 2 + 2`.

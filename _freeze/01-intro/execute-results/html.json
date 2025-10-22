@@ -1,0 +1,17 @@
+{
+  "hash": "5ae87f74dbb066aafa56a4803d298afd",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Introduction\"\n---\n\nThis chapter shows how prose and code live together.\n\n## A simple R chunk\n\nHere is a code *chunk* (not \"chuck\" 😉). It runs R and shows the output inline.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nplot(cars, main = \"Cars dataset\")\n```\n\n::: {.cell-output-display}\n![Base R scatterplot of 'cars'.](01-intro_files/figure-html/cars-plot-1.png){width=672}\n:::\n:::\n\n\n## Inline code\n\nWe can also inline R results like 2 + 2 = 4.\n",
+    "supporting": [
+      "01-intro_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

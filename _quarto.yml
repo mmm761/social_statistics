@@ -1,0 +1,33 @@
+# _quarto.yml
+project:
+  type: book
+  output-dir: _book
+book:
+  title: "Social Statistics with R"
+  author: "Your Name"
+  date: today
+  chapters:
+    - index.qmd
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    number-depth: 2
+    grid:
+      body-width: 900px
+      gutter-width: 1rem
+    css: styles.css
+    fig-width: 12
+    fig-height: 6.5
+    fig-align: center
+    fig-dpi: 180
+    math: mathjax        # ← enables LaTeX math in HTML (uses MathJax)
+  pdf:
+    documentclass: scrreprt
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
