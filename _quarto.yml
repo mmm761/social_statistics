@@ -24,8 +24,6 @@ format:
     fig-align: center
     fig-dpi: 180
     math: mathjax        # ← enables LaTeX math in HTML (uses MathJax)
-  pdf:
-    documentclass: scrreprt
 execute:
   echo: true
   warning: false
