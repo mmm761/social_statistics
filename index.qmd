@@ -3776,14 +3776,14 @@ left_join(run_labels, by = "run")
 ggplot(allocs_df_labeled, aes(mathapt, fill = group)) +
 geom_density(alpha = .25, color = NA) +
 facet_wrap(~ lab, ncol = 3) +
-scale_fill_manual(values = c(C="#00CDCD", T="#CD6889"),
+scale_fill_manual(values = c(C="blue", T="yellow"),
 labels = c(C="Control", T="Treatment")) +
 labs(
 title = "Chance imbalances under valid randomization",
 subtitle = "Each panel is one random allocation; pre-treatment T–C gaps (Δ) differ by chance.",
 x = "Math aptitude (pre-treatment)",
-y = NULL,
-fill = NULL
+y = NULL, 
+fill = NULL, 
 ) +
 theme_minimal(base_size = 12) +
 theme(
@@ -4824,7 +4824,7 @@ p <- ggplot() +
             fill = "white", color = NA) +
   geom_line(data = df_dens, aes(x, y), linewidth = 1) +
   geom_segment(aes(x = 60, xend = 68, y = y_top_min, yend = y_top_min), linewidth = 0.6) +
-  geom_vline(xintercept = mu, color = "red4", linewidth = 0.7) +
+  geom_vline(xintercept = mu, color = "red1", linewidth = 0.7) +
   geom_vline(xintercept = c(left, right), color = "#e74c3c", linetype = "dashed", linewidth = 0.7) +
 
   # --- labels for 64±1.31
@@ -7330,7 +7330,7 @@ ggplot(data, aes(x = Condition, y = Transcription)) +
     axis.text = element_text(size = 11),
     axis.title = element_text(size = 12),
     axis.line = element_line(linewidth = 0.8),
-    axis.ticks = element_line(linewidth = 0.8)
+    axis.ticks = element_line(linewidth = 0.7)
   )
 
 ```
