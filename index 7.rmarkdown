@@ -80,7 +80,7 @@ Since joining the University of California, Santa Barbara, as a faculty member i
 
 It is my hope that this book proves useful to instructors who teach large undergraduate courses in social statistics—courses that demand both conceptual clarity and practical applications of statistical laerning with a widely used software such as R-Studio. The materials assembled here are meant to ease the burden of course preparation, to offer a coherent structure for teaching statistical reasoning in the social sciences, and to encourage students to see data not as abstraction but as a language through which social realities can be understood and interrogated.
 
-This book will be made available online prior to its final print publication, and I intend for it to pass through several iterations of reflection and refinement. I welcome all forms of feedback from colleagues across institutions worldwide. I can be reached at _Movahed@ucsb.edu_.
+This book will be made available online prior to its final print publication, and I intend for it to pass through several iterations of reflection and refinement. I welcome all forms of feedback—editorial, substantive, or pedagogical—from colleagues across institutions worldwide. Your insights will be invaluable as this work continues to evolve. I can be reached at _Movahed@ucsb.edu_.
 
 This book is designed to offer a clear and user-friendly introduction to statistical learning for students in social sciences. As such, most of the examples are social scientific in nature. 
  
@@ -3776,14 +3776,14 @@ left_join(run_labels, by = "run")
 ggplot(allocs_df_labeled, aes(mathapt, fill = group)) +
 geom_density(alpha = .25, color = NA) +
 facet_wrap(~ lab, ncol = 3) +
-scale_fill_manual(values = c(C="blue", T="yellow"),
+scale_fill_manual(values = c(C="#00CDCD", T="#CD6889"),
 labels = c(C="Control", T="Treatment")) +
 labs(
 title = "Chance imbalances under valid randomization",
 subtitle = "Each panel is one random allocation; pre-treatment T–C gaps (Δ) differ by chance.",
 x = "Math aptitude (pre-treatment)",
-y = NULL, 
-fill = NULL, 
+y = NULL,
+fill = NULL
 ) +
 theme_minimal(base_size = 12) +
 theme(
@@ -4824,7 +4824,7 @@ p <- ggplot() +
             fill = "white", color = NA) +
   geom_line(data = df_dens, aes(x, y), linewidth = 1) +
   geom_segment(aes(x = 60, xend = 68, y = y_top_min, yend = y_top_min), linewidth = 0.6) +
-  geom_vline(xintercept = mu, color = "red1", linewidth = 0.7) +
+  geom_vline(xintercept = mu, color = "red4", linewidth = 0.7) +
   geom_vline(xintercept = c(left, right), color = "#e74c3c", linetype = "dashed", linewidth = 0.7) +
 
   # --- labels for 64±1.31
@@ -7330,7 +7330,7 @@ ggplot(data, aes(x = Condition, y = Transcription)) +
     axis.text = element_text(size = 11),
     axis.title = element_text(size = 12),
     axis.line = element_line(linewidth = 0.8),
-    axis.ticks = element_line(linewidth = 0.7)
+    axis.ticks = element_line(linewidth = 0.8)
   )
 
 ```
@@ -8532,6 +8532,7 @@ Multivariate regression is the foundation of modern empirical social science. It
 - Wooldridge, J. M. (2020). *Introductory Econometrics: A Modern Approach* (7th ed.). Cengage Learning.
 
 ---
+
 
 
 

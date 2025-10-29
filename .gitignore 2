@@ -1,0 +1,9 @@
+_book/
+.Rproj.user/
+.Rhistory
+.RData
+.Renviron
+renv/library/
+
+/.quarto/
+**/*.quarto_ipynb

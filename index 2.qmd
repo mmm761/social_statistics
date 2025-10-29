@@ -80,7 +80,7 @@ Since joining the University of California, Santa Barbara, as a faculty member i
 
 It is my hope that this book proves useful to instructors who teach large undergraduate courses in social statistics—courses that demand both conceptual clarity and practical applications of statistical laerning with a widely used software such as R-Studio. The materials assembled here are meant to ease the burden of course preparation, to offer a coherent structure for teaching statistical reasoning in the social sciences, and to encourage students to see data not as abstraction but as a language through which social realities can be understood and interrogated.
 
-This book will be made available online prior to its final print publication, and I intend for it to pass through several iterations of reflection and refinement. I welcome all forms of feedback from colleagues across institutions worldwide. I can be reached at _Movahed@ucsb.edu_.
+This book will be made available online prior to its final print publication, and I intend for it to pass through several iterations of reflection and refinement. I welcome all forms of feedback—editorial, substantive, or pedagogical—from colleagues across institutions worldwide. Your insights will be invaluable as this work continues to evolve. I can be reached at _Movahed@ucsb.edu_.
 
 This book is designed to offer a clear and user-friendly introduction to statistical learning for students in social sciences. As such, most of the examples are social scientific in nature. 
  
