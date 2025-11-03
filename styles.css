@@ -226,5 +226,15 @@ pre.sourceCode, pre code{
 }
 
 
+/* Force sidebar toggle visibility */
+.sidebar-toggle {
+  display: block !important;
+}
+
+/* Ensure floating sidebar is visible when opened */
+#quarto-sidebar {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
 
