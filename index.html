@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Masoud Movahed">
-<meta name="dcterms.date" content="2025-11-02">
+<meta name="dcterms.date" content="2025-11-04">
 
 <title>Social Statistics with R</title>
 <style>
@@ -295,14 +295,19 @@ window.Quarto = {
   <li><a href="#chapter-4scatterplots-and-correlations" id="toc-chapter-4scatterplots-and-correlations" class="nav-link" data-scroll-target="#chapter-4scatterplots-and-correlations"><span class="header-section-number">4</span> Chapter 4:Scatterplots and Correlations</a>
   <ul class="collapse">
   <li><a href="#explanatory-vs.-response-variables" id="toc-explanatory-vs.-response-variables" class="nav-link" data-scroll-target="#explanatory-vs.-response-variables"><span class="header-section-number">4.1</span> Explanatory vs.&nbsp;Response Variables</a></li>
-  <li><a href="#pearson-vs.-spearman" id="toc-pearson-vs.-spearman" class="nav-link" data-scroll-target="#pearson-vs.-spearman"><span class="header-section-number">4.2</span> Pearson vs.&nbsp;Spearman</a>
+  <li><a href="#reading-a-scatter-plot" id="toc-reading-a-scatter-plot" class="nav-link" data-scroll-target="#reading-a-scatter-plot"><span class="header-section-number">4.2</span> Reading a Scatter Plot</a>
+  <ul class="collapse">
+  <li><a href="#example-a-political-behavior-graduate-education-voter-turnout" id="toc-example-a-political-behavior-graduate-education-voter-turnout" class="nav-link" data-scroll-target="#example-a-political-behavior-graduate-education-voter-turnout">Example A (political behavior): Graduate education &amp; voter turnout</a></li>
+  <li><a href="#example-b-inequality-support-for-redistribution" id="toc-example-b-inequality-support-for-redistribution" class="nav-link" data-scroll-target="#example-b-inequality-support-for-redistribution">Example B: Inequality &amp; support for redistribution</a></li>
+  </ul></li>
+  <li><a href="#pearson-vs.-spearman" id="toc-pearson-vs.-spearman" class="nav-link" data-scroll-target="#pearson-vs.-spearman"><span class="header-section-number">4.3</span> Pearson vs.&nbsp;Spearman</a>
   <ul class="collapse">
   <li><a href="#scatterplots-grouping-by-a-third-variable-and-the-correlation-coefficient" id="toc-scatterplots-grouping-by-a-third-variable-and-the-correlation-coefficient" class="nav-link" data-scroll-target="#scatterplots-grouping-by-a-third-variable-and-the-correlation-coefficient">Scatterplots, Grouping by a Third Variable, and the Correlation Coefficient</a></li>
   <li><a href="#what-is-a-correlation-coefficient" id="toc-what-is-a-correlation-coefficient" class="nav-link" data-scroll-target="#what-is-a-correlation-coefficient">What is a correlation coefficient?</a></li>
   <li><a href="#step-by-step-computation-of-pearsons-r-with-a-table" id="toc-step-by-step-computation-of-pearsons-r-with-a-table" class="nav-link" data-scroll-target="#step-by-step-computation-of-pearsons-r-with-a-table">Step-by-step computation of Pearson’s r with a table</a></li>
   </ul></li>
-  <li><a href="#correlation-via-standardization" id="toc-correlation-via-standardization" class="nav-link" data-scroll-target="#correlation-via-standardization"><span class="header-section-number">4.3</span> Correlation via Standardization</a></li>
-  <li><a href="#correlation-via-standardization-definitions-steps-and-interpretation" id="toc-correlation-via-standardization-definitions-steps-and-interpretation" class="nav-link" data-scroll-target="#correlation-via-standardization-definitions-steps-and-interpretation"><span class="header-section-number">4.4</span> Correlation via Standardization: Definitions, Steps, and Interpretation</a>
+  <li><a href="#correlation-via-standardization" id="toc-correlation-via-standardization" class="nav-link" data-scroll-target="#correlation-via-standardization"><span class="header-section-number">4.4</span> Correlation via Standardization</a></li>
+  <li><a href="#correlation-via-standardization-definitions-steps-and-interpretation" id="toc-correlation-via-standardization-definitions-steps-and-interpretation" class="nav-link" data-scroll-target="#correlation-via-standardization-definitions-steps-and-interpretation"><span class="header-section-number">4.5</span> Correlation via Standardization: Definitions, Steps, and Interpretation</a>
   <ul class="collapse">
   <li><a href="#notation-and-sample-summaries" id="toc-notation-and-sample-summaries" class="nav-link" data-scroll-target="#notation-and-sample-summaries">Notation and sample summaries</a></li>
   <li><a href="#standardization-z-scores-1" id="toc-standardization-z-scores-1" class="nav-link" data-scroll-target="#standardization-z-scores-1">Standardization (z-scores)</a></li>
@@ -338,17 +343,16 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#data-collection-and-research-design" id="toc-data-collection-and-research-design" class="nav-link" data-scroll-target="#data-collection-and-research-design"><span class="header-section-number">6.1</span> Data Collection and Research Design</a></li>
   <li><a href="#populations-samples-parameters-and-statistics" id="toc-populations-samples-parameters-and-statistics" class="nav-link" data-scroll-target="#populations-samples-parameters-and-statistics"><span class="header-section-number">6.2</span> Populations, Samples, Parameters, and Statistics</a></li>
-  <li><a href="#why-use-samples" id="toc-why-use-samples" class="nav-link" data-scroll-target="#why-use-samples"><span class="header-section-number">6.3</span> Why Use Samples?</a></li>
-  <li><a href="#non-probability-sampling" id="toc-non-probability-sampling" class="nav-link" data-scroll-target="#non-probability-sampling"><span class="header-section-number">6.4</span> Non-Probability Sampling</a></li>
-  <li><a href="#probability-sampling-and-randomization" id="toc-probability-sampling-and-randomization" class="nav-link" data-scroll-target="#probability-sampling-and-randomization"><span class="header-section-number">6.5</span> Probability Sampling and Randomization</a></li>
-  <li><a href="#common-problems-in-sampling" id="toc-common-problems-in-sampling" class="nav-link" data-scroll-target="#common-problems-in-sampling"><span class="header-section-number">6.6</span> Common Problems in Sampling</a></li>
-  <li><a href="#evaluating-sample-quality" id="toc-evaluating-sample-quality" class="nav-link" data-scroll-target="#evaluating-sample-quality"><span class="header-section-number">6.7</span> Evaluating Sample Quality</a></li>
-  <li><a href="#power-analysis-for-survey-sampling-formal" id="toc-power-analysis-for-survey-sampling-formal" class="nav-link" data-scroll-target="#power-analysis-for-survey-sampling-formal"><span class="header-section-number">6.8</span> Power Analysis for Survey Sampling (Formal)</a></li>
-  <li><a href="#core-quantities" id="toc-core-quantities" class="nav-link" data-scroll-target="#core-quantities"><span class="header-section-number">6.9</span> Core quantities</a></li>
-  <li><a href="#two-sample-test-of-proportions-equal-group-sizes" id="toc-two-sample-test-of-proportions-equal-group-sizes" class="nav-link" data-scroll-target="#two-sample-test-of-proportions-equal-group-sizes"><span class="header-section-number">6.10</span> Two-sample test of proportions (equal group sizes)</a></li>
-  <li><a href="#two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma" id="toc-two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma" class="nav-link" data-scroll-target="#two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma"><span class="header-section-number">6.11</span> Two-sample difference in means (equal group sizes, pooled SD <span class="math inline">\(=\sigma\)</span>)</a></li>
-  <li><a href="#notes-for-practice" id="toc-notes-for-practice" class="nav-link" data-scroll-target="#notes-for-practice"><span class="header-section-number">6.12</span> Notes for practice</a></li>
-  <li><a href="#r-setup-functions-curves-tables-simulation" id="toc-r-setup-functions-curves-tables-simulation" class="nav-link" data-scroll-target="#r-setup-functions-curves-tables-simulation"><span class="header-section-number">6.13</span> R Setup (Functions, Curves, Tables, Simulation)</a></li>
+  <li><a href="#non-probability-sampling" id="toc-non-probability-sampling" class="nav-link" data-scroll-target="#non-probability-sampling"><span class="header-section-number">6.3</span> Non-Probability Sampling</a></li>
+  <li><a href="#probability-sampling-and-randomization" id="toc-probability-sampling-and-randomization" class="nav-link" data-scroll-target="#probability-sampling-and-randomization"><span class="header-section-number">6.4</span> Probability Sampling and Randomization</a></li>
+  <li><a href="#common-problems-in-sampling" id="toc-common-problems-in-sampling" class="nav-link" data-scroll-target="#common-problems-in-sampling"><span class="header-section-number">6.5</span> Common Problems in Sampling</a></li>
+  <li><a href="#evaluating-sample-quality" id="toc-evaluating-sample-quality" class="nav-link" data-scroll-target="#evaluating-sample-quality"><span class="header-section-number">6.6</span> Evaluating Sample Quality</a></li>
+  <li><a href="#power-analysis-for-survey-sampling-formal" id="toc-power-analysis-for-survey-sampling-formal" class="nav-link" data-scroll-target="#power-analysis-for-survey-sampling-formal"><span class="header-section-number">6.7</span> Power Analysis for Survey Sampling (Formal)</a></li>
+  <li><a href="#core-quantities" id="toc-core-quantities" class="nav-link" data-scroll-target="#core-quantities"><span class="header-section-number">6.8</span> Core quantities</a></li>
+  <li><a href="#two-sample-test-of-proportions-equal-group-sizes" id="toc-two-sample-test-of-proportions-equal-group-sizes" class="nav-link" data-scroll-target="#two-sample-test-of-proportions-equal-group-sizes"><span class="header-section-number">6.9</span> Two-sample test of proportions (equal group sizes)</a></li>
+  <li><a href="#two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma" id="toc-two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma" class="nav-link" data-scroll-target="#two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma"><span class="header-section-number">6.10</span> Two-sample difference in means (equal group sizes, pooled SD <span class="math inline">\(=\sigma\)</span>)</a></li>
+  <li><a href="#notes-for-practice" id="toc-notes-for-practice" class="nav-link" data-scroll-target="#notes-for-practice"><span class="header-section-number">6.11</span> Notes for practice</a></li>
+  <li><a href="#r-setup-functions-curves-tables-simulation" id="toc-r-setup-functions-curves-tables-simulation" class="nav-link" data-scroll-target="#r-setup-functions-curves-tables-simulation"><span class="header-section-number">6.12</span> R Setup (Functions, Curves, Tables, Simulation)</a></li>
   </ul></li>
   <li><a href="#chapter-7-observational-vs.-experimental-studies" id="toc-chapter-7-observational-vs.-experimental-studies" class="nav-link" data-scroll-target="#chapter-7-observational-vs.-experimental-studies"><span class="header-section-number">7</span> Chapter 7: Observational vs.&nbsp;Experimental Studies</a>
   <ul class="collapse">
@@ -356,7 +360,7 @@ window.Quarto = {
   <li><a href="#example-does-preschool-matter-in-the-long-run-1" id="toc-example-does-preschool-matter-in-the-long-run-1" class="nav-link" data-scroll-target="#example-does-preschool-matter-in-the-long-run-1"><span class="header-section-number">7.2</span> Example: “Does Preschool Matter in the Long Run?”</a></li>
   <li><a href="#experiments-in-sociology-a-richer-example-than-preschool" id="toc-experiments-in-sociology-a-richer-example-than-preschool" class="nav-link" data-scroll-target="#experiments-in-sociology-a-richer-example-than-preschool"><span class="header-section-number">7.3</span> Experiments in Sociology: A Richer Example than Preschool</a></li>
   <li><a href="#why-randomization-is-powerful-and-what-it-does-not-do" id="toc-why-randomization-is-powerful-and-what-it-does-not-do" class="nav-link" data-scroll-target="#why-randomization-is-powerful-and-what-it-does-not-do"><span class="header-section-number">7.4</span> Why randomization is powerful (and what it does not do)</a></li>
-  <li><a href="#when-assignment-is-not-randomized-selection-bias" id="toc-when-assignment-is-not-randomized-selection-bias" class="nav-link" data-scroll-target="#when-assignment-is-not-randomized-selection-bias"><span class="header-section-number">7.5</span> When assignment is not randomized: selection bias</a></li>
+  <li><a href="#when-assignment-is-not-randomized-explaining-selection-bias" id="toc-when-assignment-is-not-randomized-explaining-selection-bias" class="nav-link" data-scroll-target="#when-assignment-is-not-randomized-explaining-selection-bias"><span class="header-section-number">7.5</span> When assignment is not randomized: explaining selection bias</a></li>
   <li><a href="#completely-randomized-designs-random-variation-as-a-baseline" id="toc-completely-randomized-designs-random-variation-as-a-baseline" class="nav-link" data-scroll-target="#completely-randomized-designs-random-variation-as-a-baseline"><span class="header-section-number">7.6</span> Completely randomized designs: random variation as a baseline</a></li>
   <li><a href="#design-principles-social-experiments" id="toc-design-principles-social-experiments" class="nav-link" data-scroll-target="#design-principles-social-experiments"><span class="header-section-number">7.7</span> Design principles (social experiments)</a></li>
   <li><a href="#a-quick-exercise-design-critique" id="toc-a-quick-exercise-design-critique" class="nav-link" data-scroll-target="#a-quick-exercise-design-critique"><span class="header-section-number">7.8</span> A quick exercise (design critique)</a></li>
@@ -393,10 +397,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example:</a></li>
   </ul></li>
-  <li><a href="#using-the-binomial-distribution" id="toc-using-the-binomial-distribution" class="nav-link" data-scroll-target="#using-the-binomial-distribution"><span class="header-section-number">10.2</span> Using the Binomial Distribution</a>
-  <ul class="collapse">
-  <li><a href="#your-likely-reasoning" id="toc-your-likely-reasoning" class="nav-link" data-scroll-target="#your-likely-reasoning">Your (Likely) Reasoning</a></li>
-  </ul></li>
+  <li><a href="#using-the-binomial-distribution" id="toc-using-the-binomial-distribution" class="nav-link" data-scroll-target="#using-the-binomial-distribution"><span class="header-section-number">10.2</span> Using the Binomial Distribution</a></li>
   <li><a href="#the-logic-of-significance-testing" id="toc-the-logic-of-significance-testing" class="nav-link" data-scroll-target="#the-logic-of-significance-testing"><span class="header-section-number">10.3</span> The Logic of Significance Testing</a></li>
   <li><a href="#the-structure-of-hypotheses" id="toc-the-structure-of-hypotheses" class="nav-link" data-scroll-target="#the-structure-of-hypotheses"><span class="header-section-number">10.4</span> The Structure of Hypotheses</a>
   <ul class="collapse">
@@ -573,7 +574,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 2, 2025</p>
+      <p class="date">November 4, 2025</p>
     </div>
   </div>
   
@@ -1115,7 +1116,7 @@ These packages will be installed into "~/Documents/UCSB/book/r-book-starter/renv
 
 # Installing packages --------------------------------------------------------
 - Installing tidyverse ...                      OK [linked from cache]
-Successfully installed 1 package in 2.6 milliseconds.</code></pre>
+Successfully installed 1 package in 2.5 milliseconds.</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)                <span class="co"># loads dplyr, ggplot2, etc.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -2657,9 +2658,13 @@ NA NA NA NA NA NA </code></pre>
 <section id="explanatory-vs.-response-variables" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="explanatory-vs.-response-variables"><span class="header-section-number">4.1</span> Explanatory vs.&nbsp;Response Variables</h2>
 <p>When studying a pair of variables, it helps to state which one is treated as explanatory (often called the independent variable) and which is the response (dependent variable). The explanatory variable is the putative “input” you think may help account for variation in the response. Declaring roles does not prove causality; it simply clarifies your research hypothesis and how you will present the graph. Convention: put the explanatory variable on the x-axis and the response variable on the y-axis.</p>
-<p>##Reading a Scatter Plot</p>
+</section>
+<section id="reading-a-scatter-plot" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="reading-a-scatter-plot"><span class="header-section-number">4.2</span> Reading a Scatter Plot</h2>
 <p>When you examine a scatter plot, look for four things: Form: linear, curved, clustered, or no visible structure. Direction: positive (upward), negative (downward), or none. Strength: how tightly points track the pattern (strong vs.&nbsp;weak). Deviations: unusual points (outliers) that don’t fit the overall pattern. A point can be an outlier without being extreme on x or y individually; it can be unusual relative to the relationship.</p>
-<p>###Example A (political behavior): Graduate education &amp; voter turnout Hypothesis: counties with a larger share of residents holding graduate degrees tend to exhibit higher general-election turnout.</p>
+<section id="example-a-political-behavior-graduate-education-voter-turnout" class="level3">
+<h3 class="anchored" data-anchor-id="example-a-political-behavior-graduate-education-voter-turnout">Example A (political behavior): Graduate education &amp; voter turnout</h3>
+<p>Hypothesis: counties with a larger share of residents holding graduate degrees tend to exhibit higher general-election turnout.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -2709,7 +2714,10 @@ Figure&nbsp;4.1: County-level relationship between graduate-degree share and vot
 </div>
 </div>
 <p>The scatterplot illustrating the relationship between graduate-degree share and voter turnout depicts a strong, positive linear association. Each point represents a county, and the overall configuration of the points aligns closely with the upward-sloping regression line. Counties with a larger proportion of residents holding graduate degrees tend to exhibit higher rates of electoral participation. The linearity of the pattern suggests that this relationship can be well-approximated by a straight line, implying that each incremental increase in graduate education corresponds to a roughly proportional increase in turnout. The dispersion of points around the fitted line is moderate, indicating that while the general trend holds across most counties, local variation—possibly due to institutional factors such as registration laws or political mobilization—still exists. There are few, if any, extreme outliers, which implies that the association is broadly consistent across the sample. Interpretation: points trend upward (positive direction) with a fairly linear form; the regression line helps visualize the direction and strength. The correlation summarizes the linear association numerically.</p>
-<p>###Example B: Inequality &amp; support for redistribution Hypothesis: higher income inequality (Gini coefficient) is associated with greater support for redistribution in cross-national survey aggregates.</p>
+</section>
+<section id="example-b-inequality-support-for-redistribution" class="level3">
+<h3 class="anchored" data-anchor-id="example-b-inequality-support-for-redistribution">Example B: Inequality &amp; support for redistribution</h3>
+<p>Hypothesis: higher income inequality (Gini coefficient) is associated with greater support for redistribution in cross-national survey aggregates.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-gini-redis</span></span>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Cross-national inequality vs. redistribution support (synthetic). OLS fit with 95% CI."</span></span>
@@ -2863,9 +2871,11 @@ Figure&nbsp;4.1: County-level relationship between graduate-degree share and vot
 </div>
 <p>The state-level scatterplot linking college completion rates to adult vaccination displays a robust, positive, and nearly linear relationship. States with higher proportions of college-educated residents tend to have substantially greater vaccination coverage. The slope of the fitted line is steep, and the residual spread around it is relatively small, denoting a strong correlation. The linear fit captures the pattern well; no evident curvature suggests non-linearity. A few states deviate modestly above or below the line—these may correspond to cases where political polarization or health-infrastructure disparities mediate the education-vaccination link—but none appear to qualify as statistical outliers. The correlation coefficients reinforce this visual impression: both the Pearson (linear) and Spearman (rank-based) measures are high and positive, confirming that the association holds in both magnitude and rank order. Substantively, the scatterplot provides an intuitive demonstration of how social stratification, measured through educational attainment, aligns with patterns of compliance and trust in science across political contexts.</p>
 </section>
-<section id="pearson-vs.-spearman" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="pearson-vs.-spearman"><span class="header-section-number">4.2</span> Pearson vs.&nbsp;Spearman</h2>
-<p>Pearson quantifies linear association; Spearman correlates ranks and is robust to monotone but non-linear relationships.</p>
+</section>
+<section id="pearson-vs.-spearman" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="pearson-vs.-spearman"><span class="header-section-number">4.3</span> Pearson vs.&nbsp;Spearman</h2>
+<p>Pearson correlation measures how strongly two variables move together in a straight-line (linear) way. For example, if as one variable increases, the other tends to increase or decrease at a constant rate, Pearson’s correlation will capture that.</p>
+<p>Spearman correlation, on the other hand, looks at how the ranks of the data move together. It doesn’t assume a straight-line relationship — it just checks if higher values of one variable tend to go with higher (or lower) values of the other. Because it uses ranks, Spearman is better at handling situations where the relationship is curved or not perfectly linear.</p>
 <p><em>Cross-Plot Comparison and Interpretation</em> Viewed together, these scatterplots illustrate key principles of quantitative reasoning in the social sciences. The form of association ranges from strongly linear (education–turnout, education–vaccination) to modestly linear with influential cases (inequality–redistribution). The direction is uniformly positive, consistent with theories that link human capital or economic inequality to civic and policy attitudes. The strength varies: correlations exceeding 0.7 denote tight coupling, whereas values around 0.4–0.5 imply more diffuse relationships shaped by intervening variables. Finally, outliers—whether individual counties or countries—remind us that statistical associations must always be interpreted through substantive context, not treated as mechanical regularities.</p>
 <p>These formal interpretations serve as models for how sociologists and political scientists should describe scatterplots in analytical writing: discuss direction, form, strength, outliers, and the plausible social mechanisms underlying each observed pattern.</p>
 <section id="scatterplots-grouping-by-a-third-variable-and-the-correlation-coefficient" class="level3">
@@ -3208,8 +3218,8 @@ Figure&nbsp;4.2: Social trust and general-election turnout, grouped by regime ty
 </div>
 </section>
 </section>
-<section id="correlation-via-standardization" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="correlation-via-standardization"><span class="header-section-number">4.3</span> Correlation via Standardization</h2>
+<section id="correlation-via-standardization" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="correlation-via-standardization"><span class="header-section-number">4.4</span> Correlation via Standardization</h2>
 <p>As noted, the first to compute correlation between two variables is to compute theri meens. <span class="math display">\[
 z_{x,i} = \frac{x_i - \bar{x}}{s_x}, \qquad
 z_{y,i} = \frac{y_i - \bar{y}}{s_y}
@@ -3224,8 +3234,8 @@ r = \frac{1}{n-1}\sum_{i=1}^{n}
 = \frac{1}{(n-1)s_x s_y}\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})
 \]</span></p>
 </section>
-<section id="correlation-via-standardization-definitions-steps-and-interpretation" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="correlation-via-standardization-definitions-steps-and-interpretation"><span class="header-section-number">4.4</span> Correlation via Standardization: Definitions, Steps, and Interpretation</h2>
+<section id="correlation-via-standardization-definitions-steps-and-interpretation" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="correlation-via-standardization-definitions-steps-and-interpretation"><span class="header-section-number">4.5</span> Correlation via Standardization: Definitions, Steps, and Interpretation</h2>
 <section id="notation-and-sample-summaries" class="level3">
 <h3 class="anchored" data-anchor-id="notation-and-sample-summaries">Notation and sample summaries</h3>
 <p>We observe two quantitative variables for cases (i=1,,n): (x_i) and (y_i). The sample means and (unbiased) sample standard deviations are</p>
@@ -3353,8 +3363,9 @@ Table&nbsp;5.1: Two-way table of marital status and football preferences
 <p>Among married students, the calculation would be:</p>
 <p><span class="math display">\[
 \frac{39}{67} \times 100
-\]</span></p>
-<p>Percentaging within rows in this way ensures that we are comparing like with like—that is, comparing preferences across marital categories.What are the categoies that matter</p>
+\]</span><br>
+</p>
+<p>Percent aging within rows in this way ensures that we are comparing like with like—that is, comparing preferences across marital categories. What are the categories that matter.</p>
 <p>It is also useful to distinguish between <strong>marginal</strong>, <strong>conditional</strong>, and <strong>cell</strong> percentages.<br>
 A <em>marginal percentage</em> uses totals along the margins of a table—for instance, the proportion of students who are married:</p>
 <p><span class="math display">\[
@@ -3368,7 +3379,7 @@ A <em>marginal percentage</em> uses totals along the margins of a table—for in
 <p><span class="math display">\[
 \frac{28}{378} \times 100
 \]</span></p>
-<p>We could visualize a contingency table using a ‘mosaic plot’ in R-Studio. A mosaic plot displays the joint distribution of marital status and football preference. The total width of each column is proportional to the number of respondents who either like or do not like football, while the height of each colored segment within a column reflects the share of singles versus married individuals among that preference group. Within the “Like Football’’ column, 178 of 238 respondents (74.8%) are single and 60 (25.2%) are married; within the “Don’t Like Football’’ column, 133 of 162 respondents (82.1%) are single and 29 (17.9%) are married. Thus, although singles dominate both preference groups numerically, the relative composition differs slightly across them, and the mosaic layout allows this departure from independence to be seen directly in area rather than inferred from raw counts alone.</p>
+<p>We could visualize a contingency table using a ‘mosaic plot’ in R-Studio. A <em>mosaic</em> plot displays the joint distribution of marital status and football preference. The total width of each column is proportional to the number of respondents who either like or do not like football, while the height of each colored segment within a column reflects the share of singles versus married individuals among that preference group. Within the “Like Football’’ column, 178 of 238 respondents (74.8%) are single and 60 (25.2%) are married; within the “Don’t Like Football’’ column, 133 of 162 respondents (82.1%) are single and 29 (17.9%) are married. Thus, although singles dominate both preference groups numerically, the relative composition differs slightly across them, and the mosaic layout allows this departure from independence to be seen directly in area rather than inferred from raw counts alone.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-football-mosaic-labeled</span></span>
 <span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Mosaic plot of Marital Status × Football Preference with counts and within-column percentages."</span></span>
@@ -3473,7 +3484,6 @@ A <em>marginal percentage</em> uses totals along the margins of a table—for in
 </div>
 </div>
 </div>
-<p>It represents the proportion of all students who fall into that joint category (married and do not like football).</p>
 <p>The hardest part of working with two-way tables is often deciding which direction to percentage. Unlike scatterplots—where the explanatory variable conventionally appears on the x-axis—the layout of a two-way table is flexible. What matters is not the table’s physical orientation but the conceptual direction of explanation. Percentages must always be calculated within the explanatory variable’s categories.</p>
 <p>Consider a few more examples. Suppose we want to know whether religiosity influences political conservatism. We would likely view religiosity as the explanatory variable and political orientation as the response. We would therefore calculate percentages within each religiosity category (for example, percent conservative among highly religious, moderately religious, and nonreligious respondents). In contrast, if we were examining traditional gender roles and gender, we might hypothesize that gender explains variation in gender-role attitudes—so gender becomes the explanatory variable, and we would calculate percentages within columns corresponding to men and women.</p>
 <p>In all cases, the rule is consistent: <strong>percentage within the explanatory variable</strong>. The physical arrangement of the table—whether by rows or columns—does not matter, as long as the percentaging direction aligns with your hypothesis.</p>
@@ -4407,19 +4417,22 @@ As a general principle:<br>
 </tbody>
 </table>
 <p>A statistic is used to <strong>estimate</strong> a parameter. Because population values are typically unknown, our aim is an <strong>unbiased</strong> and <strong>efficient</strong> sample design.</p>
-<hr>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>## Why Use Samples?</td>
+</tr>
+<tr class="even">
+<td>- A census is often <strong>too costly</strong> and <strong>too slow</strong>. - A smaller, well-designed sample can be <strong>more accurate</strong>, permitting careful fieldwork and quality control.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="why-use-samples" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="why-use-samples"><span class="header-section-number">6.3</span> Why Use Samples?</h2>
-<ul>
-<li>A census is often <strong>too costly</strong> and <strong>too slow</strong>.<br>
-</li>
-<li>A smaller, well-designed sample can be <strong>more accurate</strong>, permitting careful fieldwork and quality control.</li>
-</ul>
-<hr>
-</section>
-<section id="non-probability-sampling" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="non-probability-sampling"><span class="header-section-number">6.4</span> Non-Probability Sampling</h2>
+<section id="non-probability-sampling" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="non-probability-sampling"><span class="header-section-number">6.3</span> Non-Probability Sampling</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -4454,8 +4467,8 @@ As a general principle:<br>
 <p><em>Illustration.</em> A mail-in poll once found 70% of parents would not have children again; a later random sample put that near 7%. The voluntary-response design disproportionately selected the disgruntled.</p>
 <hr>
 </section>
-<section id="probability-sampling-and-randomization" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="probability-sampling-and-randomization"><span class="header-section-number">6.5</span> Probability Sampling and Randomization</h2>
+<section id="probability-sampling-and-randomization" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="probability-sampling-and-randomization"><span class="header-section-number">6.4</span> Probability Sampling and Randomization</h2>
 <p>In <strong>probability sampling</strong>, every individual has a known, nonzero chance of selection.<br>
 Randomization limits selection bias by allowing chance—not judgment—to decide inclusion.</p>
 <p><strong>Simple Random Sampling (SRS).</strong> Using a complete <strong>sampling frame</strong> (a numbered list of population members), draw random numbers to select cases. Every subset of size (n) is equally likely.</p>
@@ -4463,8 +4476,8 @@ Randomization limits selection bias by allowing chance—not judgment—to decid
 <p><strong>Multistage Sampling.</strong> Add hierarchical stages (areas → tracts → households → individuals). Widely used in large surveys (GSS, CPS). Requires design-based variance estimation and weights.</p>
 <hr>
 </section>
-<section id="common-problems-in-sampling" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="common-problems-in-sampling"><span class="header-section-number">6.6</span> Common Problems in Sampling</h2>
+<section id="common-problems-in-sampling" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="common-problems-in-sampling"><span class="header-section-number">6.5</span> Common Problems in Sampling</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -4508,18 +4521,18 @@ Randomization limits selection bias by allowing chance—not judgment—to decid
 </table>
 <hr>
 </section>
-<section id="evaluating-sample-quality" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="evaluating-sample-quality"><span class="header-section-number">6.7</span> Evaluating Sample Quality</h2>
+<section id="evaluating-sample-quality" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="evaluating-sample-quality"><span class="header-section-number">6.6</span> Evaluating Sample Quality</h2>
 <p>Ask: (1) Is the frame comprehensive? (2) What was the response rate? (3) Are nonrespondents systematically different? (4) Were protocols unbiased and consistent?<br>
 Even random designs can be undermined by poor execution.</p>
 <hr>
 </section>
-<section id="power-analysis-for-survey-sampling-formal" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="power-analysis-for-survey-sampling-formal"><span class="header-section-number">6.8</span> Power Analysis for Survey Sampling (Formal)</h2>
+<section id="power-analysis-for-survey-sampling-formal" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="power-analysis-for-survey-sampling-formal"><span class="header-section-number">6.7</span> Power Analysis for Survey Sampling (Formal)</h2>
 <p>Power analysis determines the <strong>sample size</strong> needed to detect a substantively meaningful effect with high probability while controlling Type I error. It formalizes the joint choice of <strong>effect size</strong>, <strong>sample size</strong>, <strong>significance level</strong> (<span class="math inline">\(\alpha\)</span>), and <strong>power</strong> (<span class="math inline">\(1-\beta\)</span>).</p>
 </section>
-<section id="core-quantities" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="core-quantities"><span class="header-section-number">6.9</span> Core quantities</h2>
+<section id="core-quantities" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="core-quantities"><span class="header-section-number">6.8</span> Core quantities</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 57%">
@@ -4555,8 +4568,8 @@ Even random designs can be undermined by poor execution.</p>
 </tbody>
 </table>
 </section>
-<section id="two-sample-test-of-proportions-equal-group-sizes" class="level2" data-number="6.10">
-<h2 data-number="6.10" class="anchored" data-anchor-id="two-sample-test-of-proportions-equal-group-sizes"><span class="header-section-number">6.10</span> Two-sample test of proportions (equal group sizes)</h2>
+<section id="two-sample-test-of-proportions-equal-group-sizes" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="two-sample-test-of-proportions-equal-group-sizes"><span class="header-section-number">6.9</span> Two-sample test of proportions (equal group sizes)</h2>
 <p>Let <span class="math inline">\(p_0\)</span> be the control proportion and <span class="math inline">\(p_1\)</span> the treatment proportion, with effect <span class="math inline">\(\Delta = p_1 - p_0\)</span>. For a two-sided large-sample <span class="math inline">\(z\)</span> test:</p>
 <ul>
 <li><p>Standard error under <span class="math inline">\(H_1\)</span>: <span class="math display">\[
@@ -4564,12 +4577,12 @@ Even random designs can be undermined by poor execution.</p>
 \]</span></p></li>
 <li><p><span class="math inline">\(z\)</span> statistic under <span class="math inline">\(H_1\)</span>: <span class="math inline">\(z = \frac{|\Delta|}{\mathrm{SE}}\)</span>.</p></li>
 <li><p>Required per-group <span class="math inline">\(n\)</span> for power <span class="math inline">\(1-\beta\)</span> at level <span class="math inline">\(\alpha\)</span> (approximation): <span class="math display">\[
-n \approx \frac{\left[z_{1-\alpha/2}\sqrt{2\bar{p}(1-\bar{p})} + z_{1-\beta}\sqrt{p_0(1-p_0) + p_1(1-p_1)}\right]^2}{(p_1 - p_0)^2}, \qquad \bar{p}=\frac{p_0+p_1}{2}.
+n \approx \frac{\left[z_{1-\alpha/2}\sqrt{2\bar{p}(1-\bar{p})} + z_{1-\beta}\sqrt{p_0(1-p_0) + p_1(1-p_1)}\right]^2}{(p_1 - p_0)^2}, \qquad \bar{p}=\frac{p_0+p_1}{2}
 \]</span></p></li>
 </ul>
 </section>
-<section id="two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma" class="level2" data-number="6.11">
-<h2 data-number="6.11" class="anchored" data-anchor-id="two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma"><span class="header-section-number">6.11</span> Two-sample difference in means (equal group sizes, pooled SD <span class="math inline">\(=\sigma\)</span>)</h2>
+<section id="two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="two-sample-difference-in-means-equal-group-sizes-pooled-sd-sigma"><span class="header-section-number">6.10</span> Two-sample difference in means (equal group sizes, pooled SD <span class="math inline">\(=\sigma\)</span>)</h2>
 <p>Let <span class="math inline">\(\Delta = |\mu_1 - \mu_0|\)</span> be the smallest meaningful difference (in original units). The required <strong>per-group</strong> sample size is</p>
 <p><span class="math display">\[
 n \approx 2\left(\frac{(z_{1-\alpha/2} + z_{1-\beta})\sigma}{\Delta}\right)^2
@@ -4577,16 +4590,16 @@ n \approx 2\left(\frac{(z_{1-\alpha/2} + z_{1-\beta})\sigma}{\Delta}\right)^2
 <p>The formula for comparing two proportions addresses situations where we measure a binary outcome in two groups, such as whether students pass or fail under different teaching methods, or whether patients recover under treatment versus control conditions. This formula accounts for the fact that proportions have a specific variance structure—the variability of a proportion depends on the proportion itself through the expression p(1-p), which reaches its maximum at p equals one-half and decreases toward zero as proportions approach zero or one. The numerator of the sample size formula contains two components: first, a term involving the pooled proportion under the null hypothesis (when we assume no difference exists) multiplied by the critical z-value that corresponds to our chosen significance level; second, a term that incorporates the individual group proportions under the alternative hypothesis (when a true difference exists) multiplied by the z-value corresponding to our desired power. These two terms represent the sampling distributions under the null and alternative hypotheses respectively. The denominator consists of the squared difference between the two proportions—this is the effect size we wish to detect. When the anticipated difference is small, the denominator becomes small, which increases the required sample size substantially. This mathematical relationship captures an important statistical reality: detecting subtle differences requires much larger samples than detecting obvious differences.</p>
 <p>The formula for comparing two means applies when the outcome variable is continuous rather than binary, such as test scores, blood pressure measurements, or income levels. This formula assumes that both groups have equal sample sizes and share a common standard deviation sigma, which represents the natural variability in the outcome measure within each population. The required per-group sample size depends on the ratio of sigma to delta, where delta represents the smallest meaningful difference between group means that we consider important to detect. This ratio, often called the signal-to-noise ratio, captures a fundamental concept in statistical detection: when measurements are highly variable (large sigma), we need larger samples to reliably distinguish a true group difference from random fluctuation. The formula multiplies this ratio by the sum of two critical values—one corresponding to the significance level (typically 1.96 for a two-sided test at alpha equals 0.05) and one corresponding to the desired power (0.84 for eighty percent power or 1.28 for ninety percent power). The factor of two in front accounts for the fact that we need this sample size in each of the two groups being compared. Importantly, this formula reveals that sample size requirements increase with the square of the ratio of variability to effect size, meaning that doubling the variability or halving the effect size requires quadrupling the sample size to maintain the same statistical power.</p>
 </section>
-<section id="notes-for-practice" class="level2" data-number="6.12">
-<h2 data-number="6.12" class="anchored" data-anchor-id="notes-for-practice"><span class="header-section-number">6.12</span> Notes for practice</h2>
+<section id="notes-for-practice" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="notes-for-practice"><span class="header-section-number">6.11</span> Notes for practice</h2>
 <ul>
 <li>Use <span class="math inline">\(z_{1-\alpha/2}=1.96\)</span> for <span class="math inline">\(\alpha=0.05\)</span> (two-sided) and <span class="math inline">\(z_{1-\beta}=0.84\)</span> or <span class="math inline">\(1.28\)</span> for target power <span class="math inline">\(0.80\)</span> or <span class="math inline">\(0.90\)</span>, respectively.</li>
 <li>If groups are <strong>unequal</strong>, replace the per-group <span class="math inline">\(n\)</span> with <span class="math inline">\(n_0, n_1\)</span> and adjust the standard errors accordingly.</li>
 <li>For <strong>small samples</strong> or <strong>binary outcomes with extreme <span class="math inline">\(p\)</span></strong>, prefer exact or simulation-based power (e.g., via R’s <code>pwr</code> or <code>power.prop.test</code>).</li>
 </ul>
 </section>
-<section id="r-setup-functions-curves-tables-simulation" class="level2" data-number="6.13">
-<h2 data-number="6.13" class="anchored" data-anchor-id="r-setup-functions-curves-tables-simulation"><span class="header-section-number">6.13</span> R Setup (Functions, Curves, Tables, Simulation)</h2>
+<section id="r-setup-functions-curves-tables-simulation" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="r-setup-functions-curves-tables-simulation"><span class="header-section-number">6.12</span> R Setup (Functions, Curves, Tables, Simulation)</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- General helpers ----</span></span>
 <span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>deff <span class="ot">&lt;-</span> <span class="cf">function</span>(m, rho) <span class="dv">1</span> <span class="sc">+</span> (m <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> rho</span>
@@ -4648,7 +4661,8 @@ n \approx 2\left(\frac{(z_{1-\alpha/2} + z_{1-\beta})\sigma}{\Delta}\right)^2
 </section>
 <section id="chapter-7-observational-vs.-experimental-studies" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Chapter 7: Observational vs.&nbsp;Experimental Studies</h1>
-<p>Observational study. We record data on individuals without attempting to influence them. The investigator does not assign treatments; instead, observed differences arise from choices, institutions, or circumstances. Best suited to: describing populations, documenting associations, and generating hypotheses. Experimental study. We deliberately assign a treatment (or intervention) to individuals and record their responses. Random assignment—when feasible—creates groups that are comparable on average, differing only by treatment. Best suited to: estimating causal effects under assumptions that are explicit, testable in parts, and design-driven.</p>
+<p>Observational study. We record data on individuals without attempting to influence them. The investigator does not assign treatments; instead, observed differences arise from choices, institutions, or circumstances. Best suited to: describing populations, documenting associations, and generating hypotheses.</p>
+<p>Experimental study. We deliberately assign a treatment (or intervention) to individuals and record their responses. Random assignment—when feasible—creates groups that are comparable on average, differing only by treatment. Best suited to: estimating causal effects under assumptions that are explicit, testable in parts, and design-driven.</p>
 <p>Where Experiments Are Especially Appropriate</p>
 <p>Experiments are common in basic psychological research (where mechanisms are posited to be relatively context-invariant) and in policy evaluation (where the question is often whether a well-defined program “works”). Examples include: Media effects: Do violent video games increase aggressive behavior? Early childhood programs: Do quality preschools produce lasting gains in educational attainment or earnings? In such settings, random assignment can, in principle, equalize (in expectation) both observed and unobserved characteristics between treatment and control groups, making the treatment contrast interpretable as causal.</p>
 <div class="cell">
@@ -4723,7 +4737,8 @@ n \approx 2\left(\frac{(z_{1-\alpha/2} + z_{1-\beta})\sigma}{\Delta}\right)^2
 </div>
 <section id="example-does-preschool-matter-in-the-long-run" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="example-does-preschool-matter-in-the-long-run"><span class="header-section-number">7.1</span> Example: “Does Preschool Matter in the Long Run?”</h2>
-<p>Observational approach. Suppose we survey adults about outcomes (e.g., earnings) and record whether they attended preschool. A simple comparison often suggests that preschool attendees do better. But this contrast may reflect lurking variables—most notably the selection problem: families who choose (or can access) high-quality preschool often differ systematically (e.g., in socioeconomic status, parental education, neighborhood resources), and those differences also predict adult outcomes. Experimental approach. If we could randomly assign children to preschool vs.&nbsp;control (or to quality tiers), then—apart from chance—both groups would be comparable at baseline. Any subsequent difference in outcomes would then be attributable to the program, not to pre-existing family advantages. Randomization thus targets the confounding that plagues observational comparisons.</p>
+<p>Observational approach. Suppose we survey adults about outcomes (e.g., earnings) and record whether they attended preschool. A simple comparison often suggests that preschool attendees do better. But this contrast may reflect lurking variables—most notably the selection problem: families who choose (or can access) high-quality preschool often differ systematically (e.g., in socioeconomic status, parental education, neighborhood resources), and those differences also predict adult outcomes.</p>
+<p>Experimental approach. If we could randomly assign children to preschool vs.&nbsp;control (or to quality tiers), then—apart from chance—both groups would be comparable at baseline. Any subsequent difference in outcomes would then be attributable to the program, not to pre-existing family advantages. Randomization thus targets the confounding that plagues observational comparisons.</p>
 </section>
 <section id="example-does-preschool-matter-in-the-long-run-1" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="example-does-preschool-matter-in-the-long-run-1"><span class="header-section-number">7.2</span> Example: “Does Preschool Matter in the Long Run?”</h2>
@@ -4897,9 +4912,9 @@ n \approx 2\left(\frac{(z_{1-\alpha/2} + z_{1-\beta})\sigma}{\Delta}\right)^2
 </section>
 <section id="experiments-in-sociology-a-richer-example-than-preschool" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="experiments-in-sociology-a-richer-example-than-preschool"><span class="header-section-number">7.3</span> Experiments in Sociology: A Richer Example than Preschool</h2>
-<p>Survey experiments represent a common experimental design to identify ‘causal effect’ in sociology and political science. In essence, a survey experiment embeds an experimental treatment—like as a variation in question wording, framing, or informational content—within a survey instrument. Survey experiments allow us to identify causal effect because we are able to randomly assign individuals to a ‘treatment’ and ‘control’ group. Respondents are randomly assigned to different versions of the survey, which then allows researchers to assess how specific manipulations influence attitudes, beliefs, or behaviors. This approach enables scholars to test theoretical propositions about social and political processes under controlled conditions while maintaining the external validity of survey-based research.</p>
+<p>Survey experiments represent a common experimental design to identify ‘causal effect’ in social and political sciences. In essence, a survey experiment embeds an experimental treatment—like as a variation in question wording, framing, or informational content—within a survey instrument. Survey experiments allow us to identify causal effect because we are able to randomly assign individuals to a ‘treatment’ and ‘control’ group. Respondents are randomly assigned to different versions of the survey, which then allows researchers to assess how specific manipulations influence attitudes, beliefs, or behaviors. This approach enables scholars to test theoretical propositions about social and political processes under controlled conditions while maintaining the external validity of survey-based research.</p>
 <p>Let’s look at the following hypothetical examples of ‘vignette questions’ in survey experiments.</p>
-<p><em>Eample 1 (Vignette Question 1)</em></p>
+<p><em>Example 1 (Vignette Question 1)</em></p>
 <p>In Town A, most employers (around 80 %) pay their employees a living wage — enough for a decent standard of living. Almost everyone in the community (about 90 %) believes that employers should pay a fair wage, even if it slightly reduces their profits.</p>
 <p>Now imagine Mr.&nbsp;Hasan Ali, who owns a small local business. One of his workers has asked for a raise to cover rising food and rent costs.</p>
 <p>Question: How likely do you think Mr.&nbsp;Hasan Ali is to grant the raise and pay his worker a fair wage?</p>
@@ -5028,11 +5043,11 @@ n \approx 2\left(\frac{(z_{1-\alpha/2} + z_{1-\beta})\sigma}{\Delta}\right)^2
 <p>In the broader social and behavioral sciences, survey experiments are an essential tool for probing the various dimensions of human judgment and decision-making. They have been used to explore topics ranging from racial attitudes and gender bias to the dynamics of political polarization and trust in institutions. Survey experiments continue to play a central role in advancing empirical inquiry and deepening our understanding of the mechanisms that shape public opinion and social behavior.</p>
 <p>When offers are randomized, we can always estimate the intention-to-treat (ITT): the average outcome difference by offer, regardless of whether families actually move. If some families do not use their voucher (non-compliance), ITT is the policy-relevant effect of the offer. If we also measure who actually moved because of the offer, we can estimate the treatment-on-the-treated (often called LATE under standard assumptions): the effect among compliers (families whose moving decision responds to the offer). Formally:</p>
 <p><strong>Intention-to-Treat (ITT)</strong> <span class="math display">\[
-\text{ITT} \;=\; \mathbb{E}[Y \mid Z=1] - \mathbb{E}[Y \mid Z=0],
+\text{ITT} \;=\; \mathbb{E}[Y \mid Z=1] - \mathbb{E}[Y \mid Z=0]
 \]</span> where (Z) is the randomized <strong>offer</strong> (e.g., E vs.&nbsp;C), and (Y) is an outcome.</p>
 <p><strong>Complier Average Causal Effect (LATE) / Treatment-on-the-Treated (TOT)</strong> <span class="math display">\[
 \text{LATE} \;=\; \frac{\mathbb{E}[Y \mid Z=1]-\mathbb{E}[Y \mid Z=0]}
-{\mathbb{E}[D \mid Z=1]-\mathbb{E}[D \mid Z=0]}\,,
+{\mathbb{E}[D \mid Z=1]-\mathbb{E}[D \mid Z=0]}\,
 \]</span> where (D) is <strong>take-up</strong> (e.g., moved to low-poverty tract). This is the Wald/IV estimator using (Z) as an instrument for (D).</p>
 <p>Interpretation. Randomization equates arms at baseline in expectation; the observed one-year mean difference is a plausible PT effect, subject to sampling variation. If a clinically important difference requires ≥6 ODI points, the synthetic trial’s 1–3 point advantage would be modest.</p>
 </section>
@@ -5122,13 +5137,12 @@ Table&nbsp;7.1: Core experimental terminology in social research.
 </div>
 </div>
 </section>
-<section id="when-assignment-is-not-randomized-selection-bias" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="when-assignment-is-not-randomized-selection-bias"><span class="header-section-number">7.5</span> When assignment is not randomized: selection bias</h2>
+<section id="when-assignment-is-not-randomized-explaining-selection-bias" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="when-assignment-is-not-randomized-explaining-selection-bias"><span class="header-section-number">7.5</span> When assignment is not randomized: explaining selection bias</h2>
 <p>Suppose families with higher parental SES are more successful at obtaining a coveted preschool slot. If parental SES is positively related to pre-treatment math aptitude, the treated group will start out stronger even if the program has zero effect. Post-treatment differences then confound program impact with pre-existing advantage.</p>
-<p>The next setup fabricates a class roster with a latent relationship between parental SES and math aptitude. We show (i) a non-random assignment that lets high-SES families select into treatment, then (ii) a completely randomized assignment.</p>
-<p>The goal of this section is to illustrate—using a small synthetic classroom example—the difference between non-random (selection-based) assignment and complete randomization, and to show how chance imbalances naturally arise even under valid randomization.</p>
-<p>We begin by constructing an artificial roster of 32 students, each with a measure of parents’ socioeconomic status (SES) and a measure of math aptitude. The two are deliberately generated to be positively correlated, mimicking a realistic situation in which students from more advantaged families tend to score higher. We then simulate two alternative assignment mechanisms for labeling students as “treated” or “control.” In the first, the probability of being assigned to treatment increases with parental SES; this reproduces selection bias: higher-SES (and thus, on average, higher aptitude) students tend to be treated. In the second, treatment is assigned by pure coin flip, enforcing statistical independence between the pre-treatment covariates and treatment status.</p>
-<p>We then summarize pre-treatment math scores by group under each regime to highlight the consequences of assignment. With selection, the treated group has a higher mean math aptitude before any intervention; in other words, group differences pre-exist the treatment. Under complete randomization, those differences shrink toward zero (up to noise), because randomization breaks the systematic link between SES/aptitude and treatment. Finally, to emphasize that randomization controls bias but not sampling fluctuation, we repeat the random assignment five independent times and plot the resulting pre-treatment math distributions. Even when randomization is valid, the realized treated and control groups may differ more or less from run to run simply by chance. These five panels illustrate the key logic behind randomization inference: what matters is not a single realized allocation, but the distribution of allocations that could have been observed under the same randomization rule. Together, these code blocks intentionally separate bias due to selection from variance due to chance—the two fundamental statistical forces that motivate the use of random assignment and motivate the need for diagnostics and inference even when randomization has been correctly carried out.</p>
+<p>The goal is to illustrate—using a small synthetic classroom example—the difference between non-random (selection-based) assignment and complete randomization, and to show how chance imbalances naturally arise even under valid randomization.</p>
+<p>We begin by constructing an artificial roster of 32 students, each with a measure of parents’ socioeconomic status (SES) and a measure of math aptitude. The two are deliberately generated to be positively correlated, demonstrating a realistic situation in which students from more advantaged families tend to score higher. We then simulate two alternative assignment mechanisms for labeling students as “treated” or “control.” In the first, the probability of being assigned to treatment increases with parental SES; this reproduces selection bias: higher-SES (and thus, on average, higher aptitude) students tend to be treated . We then summarize pre-treatment math scores by group under each regime to highlight the consequences of assignment. With selection, the treated group has a higher mean math aptitude before any intervention; in other words, group differences pre-exist the treatment.</p>
+<p>Finally, to emphasize that randomization controls bias but not sampling fluctuation, we repeat the random assignment five independent times and plot the resulting pre-treatment math distributions. Even when randomization is valid, the realized treated and control groups may differ more or less from run to run simply by chance. These five panels illustrate the key logic behind randomization inference: what matters is not a single realized allocation, but the distribution of allocations that could have been observed under the same randomization rule.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: sel-vs-rand-tables</span></span>
 <span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Pre-treatment math aptitude by group: non-random selection vs. complete randomization (synthetic)."</span></span>
@@ -5206,7 +5220,7 @@ Table&nbsp;7.1: Core experimental terminology in social research.
 </table>
 </div>
 </div>
-<p>Under selection, the treatment group begins with a higher mean math aptitude; under randomization, pre-treatment means are similar (up to chance). Only the randomized design supports causal interpretation of the post-treatment contrast.</p>
+<p>Under selection, the treatment group begins with a higher mean math aptitude; under randomization, pre-treatment means are similar. Only the randomized design supports causal interpretation of the post-treatment contrast.</p>
 </section>
 <section id="completely-randomized-designs-random-variation-as-a-baseline" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="completely-randomized-designs-random-variation-as-a-baseline"><span class="header-section-number">7.6</span> Completely randomized designs: random variation as a baseline</h2>
@@ -5326,7 +5340,7 @@ Table&nbsp;7.2: Pre-treatment mean math aptitude by group across five random all
 <p>The figure above shows five different “coin-flip” randomizations of the same classroom into treatment and control. Because the assignment is random, none of these splits is designed to create a treated group with higher or lower ability — but by chance alone, sometimes the treated students will happen to have slightly higher pre-treatment math scores, sometimes slightly lower. Each panel reports the observed gap in average math aptitude before treatment (Δ), and you can see that this Δ is not the same across runs. The key point is: randomization eliminates systematic bias, but it does not guarantee perfectly equal groups in every single draw. Chance imbalances are normal and expected. What matters is that these imbalances are not caused by selection, but arise from the same random mechanism we can account for statistically.</p>
 <p>Please note that they are all of these randomizations are valid because they all come from the same fair randomization rule. Some happen to have a Δ of 5 points, some 1.5, some negative — but those differences arise purely by chance, not by design. Randomization does not aim to produce the smallest imbalance; it aims to produce a comparison whose difference is not confounded by selection.</p>
 <p>If you had to choose one “best” by some secondary criterion (e.g.&nbsp;smallest imbalance in pre-treatment means), you could pick the run with Δ closest to zero. But that choice would be post-hoc and would itself corrupt the logic of random assignment — you cannot “pick the randomization that looks good” without re-introducing bias.</p>
-<p>Takeaway. Randomization equalizes groups on average, not in every realized sample. Statistical inference quantifies whether a post-treatment difference is larger than what randomization alone would plausibly produce.</p>
+<p>The takeaway is that randomization equalizes groups on average, not in every realized sample. Statistical inference quantifies whether a post-treatment difference is larger than what randomization alone would plausibly produce.</p>
 </section>
 <section id="design-principles-social-experiments" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="design-principles-social-experiments"><span class="header-section-number">7.7</span> Design principles (social experiments)</h2>
@@ -6842,7 +6856,7 @@ m = z^* \frac{\sigma}{\sqrt{n}}
 </section>
 <section id="chapter-10-test-of-significance" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> Chapter 10: Test of Significance</h1>
-<p>There are two closely related methods for drawing inferences about population parameters.A confidence interval uses information from a sample to estimate a plausible range of values for the population parameter. A significance test, by contrast, evaluates a specific claim or assertion about that parameter using the same sample data. The claim being tested is known as a hypothesis, which must be clearly formulated and expressed in formal mathematical notation.</p>
+<p>There are two closely related methods for drawing inferences about population parameters. A confidence interval uses information from a sample to estimate a plausible range of values for the population parameter. A significance test, by contrast, evaluates a specific claim or assertion about that parameter using the same sample data. The claim being tested is known as a hypothesis, which must be clearly formulated and expressed in formal mathematical notation.</p>
 <section id="the-reasoning-in-tests-of-significance" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="the-reasoning-in-tests-of-significance"><span class="header-section-number">10.1</span> The reasoning in tests of significance:</h2>
 <section id="example" class="level3">
@@ -6974,13 +6988,9 @@ m = z^* \frac{\sigma}{\sqrt{n}}
 </div>
 </div>
 </div>
-<section id="your-likely-reasoning" class="level3">
-<h3 class="anchored" data-anchor-id="your-likely-reasoning">Your (Likely) Reasoning</h3>
-<p>This follows the same logic as a significance test:</p>
 <p><strong>If I assume the researcher’s claim is correct</strong> (that the true increase is 10 percentage points in each community), then observing only 2 communities (or fewer) with such an increase out of 20 would be highly unexpected—occurring with probability 0.6769.</p>
 <p><strong>Therefore, I reject the claim</strong> and conclude that the evidence does not support such a large program effect.</p>
 <p>This mirrors the structure of hypothesis testing: we begin by assuming the claim (the null hypothesis), examine how surprising our data are under that assumption, and—if the results are too unlikely—decide that the claim is probably false.</p>
-</section>
 </section>
 <section id="the-logic-of-significance-testing" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="the-logic-of-significance-testing"><span class="header-section-number">10.3</span> The Logic of Significance Testing</h2>
@@ -8389,7 +8399,7 @@ Figure&nbsp;11.3: The three most commonly used significance levels, .05, .01, an
 </div>
 </div>
 </div>
-<p>A practical decision rule for hypothesis testing using confidence intervals cabe illustrated in the figure above Imagine we conducted a survey to estimate support for Proposition A, and our 95% confidence interval ranges from 51% to 55%, with our best estimate (the point estimate) at 53%. The key insight is this: if the null hypothesis value falls inside this confidence interval—anywhere between 51% and 55%—we do not reject the null hypothesis. However, if the null hypothesis value falls outside this range—either below 51% or above 55% (shown in the red rejection regions)—we reject the null hypothesis at the .05 significance level. For example, if our null hypothesis claimed that support was 50%, we would reject it because 50% falls in the left rejection region. Conversely, if the null hypothesis claimed support was 52%, we would not reject it because 52% falls comfortably within our confidence interval. This visual method provides an intuitive way to connect confidence intervals with hypothesis testing decisions: when the null value is captured by your interval, you lack sufficient evidence to reject it; when it falls outside, you have enough evidence to reject it.</p>
+<p>Imagine we conducted a survey to estimate support for Proposition A, and our 95% confidence interval ranges from 51% to 55%, with a point estimate of 53%. The key idea is straightforward: if the null hypothesis value falls within this confidence interval—anywhere between 51% and 55%—we do not reject the null hypothesis. If it falls outside this range, either below 51% or above 55%, we reject the null at the 0.05 significance level. For example, if the null hypothesis posits that support is 50%, we would reject it because 50% lies in the left rejection region. In contrast, if the null claims that support is 52%, we would not reject it since 52% falls comfortably within the interval. This provides an intuitive connection between confidence intervals and hypothesis testing: when the null value is captured by the interval, the data do not offer sufficient evidence to reject it; when it falls outside, the evidence is strong enough to conclude that the null hypothesis is unlikely to be true.</p>
 </section>
 <section id="connecting-confidence-intervals-to-p-values" class="level2" data-number="11.13">
 <h2 data-number="11.13" class="anchored" data-anchor-id="connecting-confidence-intervals-to-p-values"><span class="header-section-number">11.13</span> Connecting Confidence Intervals to <span class="math inline">\(p\)</span> Values</h2>

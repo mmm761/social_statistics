@@ -1,0 +1,240 @@
+/* styles.css */
+
+/* -------------------------
+   Page width & global type
+   ------------------------- */
+:root{
+  --content-max-width: 1100px;
+
+  /* Global HTML sizing (Quarto/Bootstrap uses these) */
+  --bs-body-font-size: 1.30rem;   /* ~17–18px base */
+  --bs-body-line-height: 1.75;
+}
+
+body{
+  font-size: var(--bs-body-font-size);
+  line-height: var(--bs-body-line-height);
+}
+
+.quarto-container > main.content{
+  max-width: var(--content-max-width);
+}
+
+/* -------------------------
+   Responsive heading scale
+   ------------------------- */
+h1, .h1 { font-size: clamp(2.0rem, 2.2rem + 1.2vw, 3.0rem); line-height: 1.15; }
+h2, .h2 { font-size: clamp(1.6rem, 1.7rem + 0.6vw, 2.2rem); line-height: 1.20; }
+h3, .h3 { font-size: clamp(1.35rem, 1.45rem + 0.3vw, 1.7rem); line-height: 1.22; }
+h4, .h4 { font-size: 1.22rem; line-height: 1.25; }
+h5, .h5 { font-size: 1.12rem; line-height: 1.3; }
+h6, .h6 { font-size: 1.04rem; line-height: 1.3; }
+
+/* On-page main title (H1) */
+#title-block-header .title,
+.quarto-title-block .title {
+  color: #C62828;       /* deep red */
+  font-size: clamp(2.4rem, 2.6rem + 1.2vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+/* Chapter number/prefix near title */
+.header-section-number,
+.chapter-number {
+  color: #C62828;
+  font-weight: 800;
+}
+
+/* -------------------------
+   Paragraphs, lists, blockquotes
+   ------------------------- */
+p, li { font-size: 1em; }
+blockquote{ font-size: 1.05em; line-height: 1.7; }
+
+/* Slight extra space before H2s for roomy layout */
+main.content h2 { margin-top: 1.25rem; }
+
+/* -------------------------
+   Right-side TOC ("On this page")
+   ------------------------- */
+@media (min-width: 992px) {
+  nav#TOC,
+  nav[role="doc-toc"] {
+    font-size: 1.12rem;   /* was 1.10 */
+    line-height: 1.45;    /* a bit looser for large text */
+  }
+  nav#TOC .toc-title,
+  nav[role="doc-toc"] .toc-title {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+  nav#TOC .nav-link,
+  nav[role="doc-toc"] .nav-link {
+    font-weight: 700;
+  }
+  /* nested entries a touch smaller */
+  nav#TOC .nav-link + ul .nav-link,
+  nav[role="doc-toc"] .nav-link + ul .nav-link {
+    font-size: 1.06rem;  /* was 1.04 */
+    font-weight: 600;
+  }
+}
+
+/* -------------------------
+   Left sidebar (book chapter list)
+   ------------------------- */
+
+/* Sidebar section header text */
+.sidebar-navigation .sidebar-title,
+.sidebar .sidebar-title {
+  font-size: 1.16rem;  /* was 1.12 */
+  font-weight: 700;
+}
+
+/* TOP-LEVEL chapter links: bigger + red */
+.sidebar .sidebar-item > .sidebar-link {
+  font-size: 1.26rem !important;   /* was 1.22 */
+  font-weight: 800 !important;
+  color: #C62828 !important;
+  line-height: 1.35;
+}
+
+/* Chapter number within link: match color/size */
+.sidebar .sidebar-item > .sidebar-link .chapter-number {
+  color: #C62828 !important;
+  font-size: 1.26rem !important;
+  font-weight: 800 !important;
+  margin-right: 0.25rem;
+}
+
+/* Active chapter: slightly darker red */
+.sidebar .sidebar-item > .sidebar-link.active {
+  color: #B71C1C !important;
+  font-weight: 900 !important;
+}
+.sidebar .sidebar-item > .sidebar-link.active .chapter-number {
+  color: #B71C1C !important;
+}
+
+/* Nested items (sections within current chapter): keep modest size, not red */
+.sidebar .sidebar-item .sidebar-item > .sidebar-link {
+  font-size: 1.08rem !important;   /* was 1.05 */
+  font-weight: 700 !important;
+  color: inherit !important;
+  line-height: 1.30;
+}
+
+/* Slight spacing for readability */
+.sidebar .sidebar-item { margin-bottom: 0.15rem; }
+
+/* -------------------------
+   Tables, figures, captions
+   ------------------------- */
+.figure, .quarto-figure, .cell-output-display { width: 100%; }
+
+.figure p.caption, figcaption, .figure .caption{
+  font-size: 1.02rem;    /* larger captions */
+  line-height: 1.6;
+}
+
+.table, table{
+  font-size: 1.04rem;
+}
+.table > :not(caption) > * > *{
+  padding: .65rem .8rem;
+}
+
+/* -------------------------
+   Footnotes & sidenotes
+   ------------------------- */
+.footnotes, .footnotes p, .footnote-ref{
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+/* -------------------------
+   Code (inline and blocks)
+   ------------------------- */
+code:not(.sourceCode){
+  font-size: 0.94em; /* inline code slightly smaller than body */
+}
+
+div.sourceCode,
+pre.sourceCode, pre code{
+  font-size: 1.02rem;     /* bigger code blocks */
+  line-height: 1.6;
+}
+
+/* Code blocks with copy button */
+.code-with-copy .sourceCode pre{
+  font-size: 1.02rem;
+}
+
+/* -------------------------
+   Mobile tweaks
+   ------------------------- */
+@media (max-width: 575.98px){
+  :root{
+    --bs-body-font-size: 1.06rem; /* slightly smaller on very small screens */
+  }
+  table{ font-size: 1rem; }
+  .figure p.caption, figcaption{ font-size: 1rem; }
+}
+
+/* -------------------------
+   Display math styling (no font-size changes)
+   ------------------------- */
+
+/* Works for MathJax v3 and KaTeX display blocks */
+.katex-display,
+.math.display,
+.mjx-display {
+  background: #f9fafc;
+  border: 1px solid #e3e6ef;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 20px auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  text-align: center;
+  max-width: 900px;
+}
+
+/* Keep inline math aligned nicely without touching font size */
+.katex, .mjx-inline {
+  vertical-align: middle;
+}
+
+/* Ensure math blocks don’t overflow on small screens */
+.katex-display > .katex,
+.mjx-display > .MathJax {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Subtle accent rule above/below math blocks (optional, purely decorative) */
+.katex-display::before,
+.mjx-display::before {
+  content: "";
+  display: block;
+  height: 3px;
+  margin: 0 auto 10px auto;
+  width: 50px;
+  background: linear-gradient(90deg, #6b9dfc, #9d6bfc);
+  border-radius: 2px;
+  opacity: .75;
+}
+
+
+/* Force sidebar toggle visibility */
+.sidebar-toggle {
+  display: block !important;
+}
+
+/* Ensure floating sidebar is visible when opened */
+#quarto-sidebar {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
