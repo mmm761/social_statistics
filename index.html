@@ -1116,7 +1116,7 @@ These packages will be installed into "~/Documents/UCSB/book/r-book-starter/renv
 
 # Installing packages --------------------------------------------------------
 - Installing tidyverse ...                      OK [linked from cache]
-Successfully installed 1 package in 2.6 milliseconds.</code></pre>
+Successfully installed 1 package in 2.9 milliseconds.</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)                <span class="co"># loads dplyr, ggplot2, etc.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -8742,68 +8742,13 @@ z = \frac{M - \mu_0}{\sigma/\sqrt{N}}
 <p>to approximate a rough estimate of the <span class="math inline">\(p\)</span> value, rather than replacing the precise calculation we’d require for an accurate <span class="math inline">\(p\)</span> value.</p>
 <p>Naturally, you can apply these same guidelines when a CI is presented in text format rather than displayed graphically. Suppose you encounter the statement “the decrease in mean response time was 32 ms [10, 54].” You want to estimate the <span class="math inline">\(p\)</span> value for testing the null hypothesis of zero change, meaning <span class="math inline">\(\mu_0 = 0\)</span>. First, observe that 0 falls outside the CI, so we know <span class="math inline">\(p &lt; .05\)</span>. Then visualize—either by sketching or mentally—the CI and its position relative to zero. Comparing with Figure 6.7, note that our CI falls between the two rightmost scenarios, indicating <span class="math inline">\(p\)</span> lies between .01 and .001, perhaps around .005. Remember, we’re content with approximate eyeballing—the goal is a rough sense of the <span class="math inline">\(p\)</span> value, not an exact calculation.</p>
 <p>The figure above provides additional illustration of how the <span class="math inline">\(p\)</span> value varies depending on where a 95% CI falls in relation to <span class="math inline">\(\mu_0\)</span>. Imagine shifting <span class="math inline">\(M\)</span> and the CI vertically, and approximating the <span class="math inline">\(p\)</span> value. The short dotted lines labeled with <span class="math inline">\(p\)</span> values move vertically with the CI, marking our four guidelines.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Exercise 6.9
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Open the <strong>CI and p</strong> page of ESCI intro chapters 3–8. Explore freely. Use the large slider to shift the heavy blue 95% CI vertically in relation to the fixed <span class="math inline">\(\mu_0\)</span> value. Try clicking on <strong>Small hints</strong>. Compare with Figure 6.8.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Exercise 6.10
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Create games or challenges to practice reading <span class="math inline">\(p\)</span> values, given a 95% CI and <span class="math inline">\(\mu_0\)</span>. For example, disable the <span class="math inline">\(p\)</span> value (red 2) and all hints, move <span class="math inline">\(M\)</span>, approximate <span class="math inline">\(p\)</span>, then enable the <span class="math inline">\(p\)</span> value to verify your accuracy. Aim for speed and competition.</p>
-</div>
-</div>
-<p><strong>6.11</strong> For each of the 95% CIs in Figure 6.9, estimate the <span class="math inline">\(p\)</span> value.</p>
-<p><strong>6.12</strong> You read that “the increase in mean reading age was 2.3 months [−0.5, 5.1].” What is the approximate <span class="math inline">\(p\)</span> value, for the null hypothesis of zero increase?</p>
-<p>If a 95% CI falls so <span class="math inline">\(\mu_0\)</span> is at a limit (i.e., exactly at one end of the CI), then <span class="math inline">\(p = .05\)</span>. Suppose a 99% CI falls so <span class="math inline">\(\mu_0\)</span> is at a limit, what do you think the <span class="math inline">\(p\)</span> value would be?</p>
 </section>
 <section id="type-i-and-type-ii-errors" class="level2" data-number="11.16">
 <h2 data-number="11.16" class="anchored" data-anchor-id="type-i-and-type-ii-errors"><span class="header-section-number">11.16</span> Type I and Type II Errors</h2>
-<p>Assuming that either <span class="math inline">\(H_0\)</span> or <span class="math inline">\(H_1\)</span> is true, two possible states of reality exist: Either no effect exists and <span class="math inline">\(H_0\)</span> is true, or an effect exists and <span class="math inline">\(H_1\)</span> is true. Additionally, we face two possible decisions: Reject <span class="math inline">\(H_0\)</span>, or fail to reject <span class="math inline">\(H_0\)</span>. Consequently, four possibilities emerge, as depicted in the four primary cells of Table 6.1.</p>
+<p>Assuming that either <span class="math inline">\(H_0\)</span> or <span class="math inline">\(H_1\)</span> is true, two possible states of reality exist: Either no effect exists and <span class="math inline">\(H_0\)</span> is true, or an effect exists and <span class="math inline">\(H_1\)</span> is true. Additionally, we face two possible decisions: Reject <span class="math inline">\(H_0\)</span>, or fail to reject <span class="math inline">\(H_0\)</span>.</p>
 <p>Two cells represent desirable outcomes, where our decision would be correct: In the upper left cell, no effect exists, <span class="math inline">\(H_0\)</span> is true, and we correctly fail to reject it. In the lower right cell, an effect exists, <span class="math inline">\(H_1\)</span> is true, and we correctly reject <span class="math inline">\(H_0\)</span>.</p>
 <p>The remaining two cells represent errors, designated as <em>Type I</em> and <em>Type II</em> errors:</p>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Type I Error
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A <em>Type I error</em> occurs when we reject <span class="math inline">\(H_0\)</span> despite its truth, as shown in the bottom left cell of Table 6.1.</p>
-</div>
-</div>
 <p>A Type I error constitutes a <em>false positive</em>. We declare “There’s an effect!”, but unfortunately we’re mistaken. If we reject the null hypothesis that <span class="math inline">\(\mu = 50\)</span> for College Alpha students when that value is actually their true population mean HEAT score, then we commit a Type I error.</p>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Type II Error
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A <em>Type II error</em> occurs when we fail to reject <span class="math inline">\(H_0\)</span> despite its falsity, as shown in the top right cell in Table 6.1.</p>
-</div>
-</div>
 <p>A Type II error constitutes a <em>false negative</em>, also termed a <em>miss</em>. An effect exists, yet we fail to detect it. If we don’t reject the null hypothesis that <span class="math inline">\(\mu = 50\)</span> for College Alpha students when their population mean HEAT score is actually <em>not</em> 50, then we commit a Type II error.</p>
 <p><strong>6.21</strong> If you select <span class="math inline">\(\alpha = .01\)</span> and obtain <span class="math inline">\(p = .03\)</span>, what decision do you make? Which cells in the table could you occupy?</p>
 <ul>
@@ -8828,7 +8773,7 @@ z = \frac{M - \mu_0}{\sigma/\sqrt{N}}
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <em>Type I error rate</em>, <span class="math inline">\(\alpha\)</span>, represents the probability of rejecting <span class="math inline">\(H_0\)</span> when it’s actually true. This is also termed the <em>false positive rate</em>. (Refer to the bottom left cell in Table 6.1.)</p>
+<p>The <em>Type I error rate</em>, <span class="math inline">\(\alpha\)</span>, represents the probability of rejecting <span class="math inline">\(H_0\)</span> when it’s actually true. This is also termed the <em>false positive rate</em>.</p>
 </div>
 </div>
 <p><span id="eq-alpha"><span class="math display">\[
@@ -8851,7 +8796,7 @@ z = \frac{M - \mu_0}{\sigma/\sqrt{N}}
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <em>Type II error rate</em>, <span class="math inline">\(\beta\)</span>, represents the probability of failing to reject <span class="math inline">\(H_0\)</span> when it’s actually false. This is also termed the <em>false negative rate</em>, or <em>miss rate</em>. (Refer to the top right cell in Table 6.1.)</p>
+<p>The <em>Type II error rate</em>, <span class="math inline">\(\beta\)</span>, represents the probability of failing to reject <span class="math inline">\(H_0\)</span> when it’s actually false. This is also termed the <em>false negative rate</em>, or <em>miss rate</em>.</p>
 </div>
 </div>
 <p><span id="eq-beta"><span class="math display">\[
